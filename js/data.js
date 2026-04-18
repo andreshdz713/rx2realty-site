@@ -30,7 +30,7 @@ window.R2R_DATA = {
       title: 'Why a compounding pharmacist is studying real estate',
       excerpt: 'Years of formulating personalized therapies taught me that value gets built in the details — the same instinct that shows up in a well-run deal. Here\'s how the two worlds rhyme.',
       category: 'Journal',
-      date: 'Apr 14, 2026',
+      date: 'Apr 19, 2026',
       readTime: '3 min',
       thumb: 'sage',
       feature: true,
