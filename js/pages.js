@@ -60,8 +60,8 @@ function HomePage({ setRoute, setPostId }) {
               <div className="stat-delta">▲ 6 pts last 2 weeks</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Study hours · last 14 days</div>
-              <div className="stat-value">{recentSessions.reduce((a,b)=>a+b, 0)}<span className="stat-unit">hrs</span></div>
+              <div className="stat-label">Study hours</div>
+              <div className="stat-value">{exam.hoursCompleted}<span className="stat-unit">hrs</span></div>
               <div className="stat-bars">
                 {recentSessions.map((v, i) => (
                   <div key={i} className={'stat-bar' + (v >= 6 ? ' active' : '')} style={{ height: (v / maxSession * 100) + '%' }}/>
