@@ -7,6 +7,15 @@ function AskPage() {
   const [tab, setTab] = useStateA('all');
   const [expanded, setExpanded] = useStateA(null);
   const [draftQ, setDraftQ] = useStateA('');
+  const [draftName, setDraftName] = useStateA('');
+
+  const canSubmit = draftQ.trim() && draftName.trim();
+  const submit = () => {
+    if (!canSubmit) return;
+    alert(`Question from ${draftName.trim()} queued! (demo)`);
+    setDraftQ('');
+    setDraftName('');
+  };
 
   const tabs = [
     { id: 'all', label: 'All' },
@@ -47,6 +56,24 @@ function AskPage() {
               <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--terracotta-soft)', display: 'grid', placeItems: 'center', color: '#8f4a2a', fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 14 }}>?</div>
               <div className="composer-label">Ask a new question</div>
             </div>
+            <input
+              type="text"
+              value={draftName}
+              onChange={e => setDraftName(e.target.value)}
+              placeholder="Your name"
+              required
+              style={{
+                width: '100%',
+                padding: '10px 14px',
+                border: '1px solid var(--rule-strong)',
+                borderRadius: 8,
+                fontFamily: 'inherit',
+                fontSize: 14,
+                background: 'var(--bg-card)',
+                outline: 'none',
+                marginBottom: 10,
+              }}
+            />
             <textarea
               value={draftQ}
               onChange={e => setDraftQ(e.target.value)}
@@ -55,7 +82,7 @@ function AskPage() {
             />
             <div className="composer-foot">
               <div className="composer-hint">Answered in the order received · response within 48 hrs</div>
-              <button className={'btn btn-sm ' + (draftQ.trim() ? 'btn-terra' : 'btn-ghost')} disabled={!draftQ.trim()} onClick={() => { if (draftQ.trim()) { alert('Question queued! (demo)'); setDraftQ(''); }}}>
+              <button className={'btn btn-sm ' + (canSubmit ? 'btn-terra' : 'btn-ghost')} disabled={!canSubmit} onClick={submit}>
                 Submit <Icon.arrow/>
               </button>
             </div>
