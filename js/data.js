@@ -28,7 +28,7 @@ window.R2R_DATA = {
     {
       id: 'p1',
       title: 'Why a compounding pharmacist is studying real estate',
-      excerpt: 'Not burning out. Not leaving pharmacy. Just expanding the shape of my week — and here is why a healthcare leader is learning escrow on nights and weekends.',
+      excerpt: 'Everyone keeps asking if I am burning out. Short answer, no. Long answer, ask me again after I pass the Texas real estate exam.',
       category: 'Journal',
       date: 'Apr 19, 2026',
       readTime: '3 min',
