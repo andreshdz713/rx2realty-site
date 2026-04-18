@@ -42,13 +42,15 @@ function AskPage() {
 
       <section style={{ padding: '48px 0 80px' }}>
         <div className="container-narrow">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 20, alignItems: 'center', marginBottom: 28 }}>
-            <div className="qa-tabs" style={{ marginBottom: 0, flexWrap: 'wrap' }}>
-              {tabs.map(t => (
-                <button key={t.id} className={'qa-tab' + (tab === t.id ? ' active' : '')} onClick={() => setTab(t.id)}>{t.label}</button>
-              ))}
+          {qa.length > 0 && (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 20, alignItems: 'center', marginBottom: 28 }}>
+              <div className="qa-tabs" style={{ marginBottom: 0, flexWrap: 'wrap' }}>
+                {tabs.map(t => (
+                  <button key={t.id} className={'qa-tab' + (tab === t.id ? ' active' : '')} onClick={() => setTab(t.id)}>{t.label}</button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Ask box */}
           <div className="composer" style={{ marginBottom: 32, marginTop: 0 }}>
@@ -88,7 +90,11 @@ function AskPage() {
             </div>
           </div>
 
-          {shown.map((q, i) => {
+          {qa.length === 0 ? (
+            <div className="card" style={{ padding: 32, textAlign: 'center', color: 'var(--ink-mute)' }}>
+              No questions yet. Be the first to ask.
+            </div>
+          ) : shown.map((q, i) => {
             const isOpen = expanded === i;
             return (
               <div key={i} className="qa-card" onClick={() => setExpanded(isOpen ? null : i)}>
