@@ -137,17 +137,17 @@ function HomePage({ setRoute, setPostId }) {
         </div>
       </section>
 
-      {window.R2R_DATA.threads.length > 0 && (
-        <section className="section">
-          <div className="container">
-            <div className="section-head">
-              <div>
-                <div className="eyebrow" style={{ marginBottom: 12 }}>Community</div>
-                <h2 className="section-title">Two crowds, <em>one room</em></h2>
-              </div>
-              <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes — asking and answering in the open.</p>
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 12 }}>Community</div>
+              <h2 className="section-title">Two crowds, <em>one room</em></h2>
             </div>
+            <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes — asking and answering in the open.</p>
+          </div>
 
+          {window.R2R_DATA.threads.length > 0 && (
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {window.R2R_DATA.threads.slice(0, 2).map(t => (
                 <div key={t.id} className="thread-row" onClick={() => setRoute('forum')} style={{ gridTemplateColumns: 'auto 1fr' }}>
@@ -163,13 +163,17 @@ function HomePage({ setRoute, setPostId }) {
                 </div>
               ))}
             </div>
+          )}
 
-            <div style={{ textAlign: 'center', marginTop: 32 }}>
-              <button className="btn btn-primary" onClick={() => setRoute('forum')}>See all {window.R2R_DATA.threads.length} threads <Icon.arrow/></button>
-            </div>
+          <div style={{ textAlign: 'center', marginTop: 32 }}>
+            <button className="btn btn-primary" onClick={() => setRoute('forum')}>
+              {window.R2R_DATA.threads.length > 0
+                ? <>See all {window.R2R_DATA.threads.length} threads <Icon.arrow/></>
+                : <>Start the first thread <Icon.arrow/></>}
+            </button>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
     </main>
   );
 }
