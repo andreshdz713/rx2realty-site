@@ -63,9 +63,6 @@ function ForumPage({ setRoute, setThreadId }) {
                   <span className="forum-cat-count">{c.count}</span>
                 </button>
               ))}
-              <div className="forum-sidebar-head" style={{ marginTop: 20 }}>Filters</div>
-              <button className="forum-cat"><span>Unanswered</span><span className="forum-cat-count">17</span></button>
-              <button className="forum-cat"><span>Your subscriptions</span><span className="forum-cat-count">3</span></button>
             </aside>
 
             <div>

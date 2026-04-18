@@ -29,8 +29,6 @@ function HomePage({ setRoute, setPostId }) {
                 <button className="btn btn-ghost" onClick={() => setRoute('forum')}>Jump into the forum</button>
               </div>
               <div className="hero-meta">
-                <div><strong>142</strong> discussions</div>
-                <div><strong>3.1k</strong> readers</div>
                 <div><strong>{exam.streak}</strong>-day study streak</div>
               </div>
             </div>
