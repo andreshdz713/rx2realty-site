@@ -27,7 +27,7 @@ function HomePage({ setRoute, setPostId }) {
                 <em>one curious mind.</em>
               </h1>
               <p className="hero-sub">
-                I'm a compounding pharmacist exploring real estate. This is my running journal and gathering place — for pharmacists curious about real estate, and for real estate folks curious about the people who build personalized medicine. Everything I'm learning, out in the open.
+                I'm a compounding pharmacist exploring real estate. This is my running journal and gathering place, for pharmacists curious about real estate, and for real estate folks curious about the people who build personalized medicine. Everything I'm learning, out in the open.
               </p>
               <div className="hero-actions">
                 <button className="btn btn-primary" onClick={() => setRoute('journal')}>Read the journal <Icon.arrow/></button>
@@ -50,7 +50,7 @@ function HomePage({ setRoute, setPostId }) {
               <div className="eyebrow" style={{ marginBottom: 12 }}>Live dashboard · updated hourly</div>
               <h2 className="section-title">Where I am in the <em>study grind</em></h2>
             </div>
-            <p className="section-sub">Public accountability. If the numbers slip, it's on me — which is precisely the point.</p>
+            <p className="section-sub">Public accountability. If the numbers slip, it's on me, which is precisely the point.</p>
           </div>
 
           <div className="dashboard">
@@ -147,7 +147,7 @@ function HomePage({ setRoute, setPostId }) {
               <div className="eyebrow" style={{ marginBottom: 12 }}>Community</div>
               <h2 className="section-title">Two crowds, <em>one room</em></h2>
             </div>
-            <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes — asking and answering in the open.</p>
+            <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes, asking and answering in the open.</p>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 32 }}>
@@ -271,10 +271,10 @@ function PostPage({ postId, setRoute }) {
           ) : (
             <>
               <p>{post.excerpt}</p>
-              <p>This essay is a placeholder — when you drop in your real writing it will render with this typographic rhythm. The serif display type gives weight to the title; the body type is tuned for comfortable reading at long lengths.</p>
+              <p>This essay is a placeholder. When you drop in your real writing it will render with this typographic rhythm. The serif display type gives weight to the title; the body type is tuned for comfortable reading at long lengths.</p>
               <blockquote>I don't want to leave pharmacy. I want to expand the shape of my week.</blockquote>
               <p>Below the fold, you'd include any real content: anecdotes from shifts, study techniques, interview notes with brokers. Treat this like a letter to the version of you who's one month behind.</p>
-              <p>Finally, a closing call — maybe a question for readers, or an invitation to ask a follow-up. The goal is always to turn a solo monologue into a shared conversation.</p>
+              <p>Finally, a closing call. Maybe a question for readers, or an invitation to ask a follow-up. The goal is always to turn a solo monologue into a shared conversation.</p>
             </>
           )}
         </div>
@@ -312,10 +312,10 @@ function AboutPage() {
                 I'm a compounding pharmacist formulating formulations, who works with GLP-1 therapies and other peptide therapies. The craft taught me to build things that actually fit the people using them.
               </p>
               <p>
-                I'm not leaving pharmacy. I love the science, the patients, the work. But I'm exploring real estate alongside it, because I want to understand how value gets made outside the lab — and because the two skillsets compound in interesting ways.
+                I'm not leaving pharmacy. I love the science, the patients, the work. But I'm exploring real estate alongside it, because I want to understand how value gets made outside the lab, and because the two skillsets compound in interesting ways.
               </p>
               <p>
-                If you're a pharmacist wondering whether this is possible, or a real estate pro curious why someone from the pharmacy world would show up here — this site is for both of you. Pull up a chair.
+                If you're a pharmacist wondering whether this is possible, or a real estate pro curious why someone from the pharmacy world would show up here, this site is for both of you. Pull up a chair.
               </p>
             </div>
 
@@ -328,12 +328,12 @@ function AboutPage() {
               <div className="timeline-item">
                 <div className="timeline-year">Post-PharmD</div>
                 <div className="timeline-title">Retail Pharmacist </div>
-                <div className="timeline-desc">Retail and dispensing roles — counseling patients, managing workflow, and learning the pace of community pharmacy.</div>
+                <div className="timeline-desc">Retail and dispensing roles: counseling patients, managing workflow, and learning the pace of community pharmacy.</div>
               </div>
               <div className="timeline-item">
                 <div className="timeline-year">Transition</div>
                 <div className="timeline-title">Compounding Manager</div>
-                <div className="timeline-desc">Moved from dispensing into compounding — leading the lab, building SOPs, and formulating patient-specific therapies.</div>
+                <div className="timeline-desc">Moved from dispensing into compounding: leading the lab, building SOPs, and formulating patient-specific therapies.</div>
               </div>
               <div className="timeline-item">
                 <div className="timeline-year">Current</div>

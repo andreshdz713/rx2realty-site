@@ -35,7 +35,7 @@ function AskPage() {
             Questions I get, <em style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>answered honestly.</em>
           </h1>
           <p style={{ color: 'var(--ink-soft)', marginTop: 20, maxWidth: '50ch', fontSize: 16 }}>
-            Submit anything — about pharmacy, about the exam, about the pivot. I answer in public so other people in the same spot can find the answers too.
+            Submit anything. About pharmacy, about the exam, about the pivot. I answer in public so other people in the same spot can find the answers too.
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@ function AskPage() {
                 )}
                 <div className="qa-foot">
                   <span>asked by @{q.asker} · {q.answers} follow-ups</span>
-                  <span>{isOpen ? '— collapse' : '+ expand answer'} · ♥ {q.likes}</span>
+                  <span>{isOpen ? 'collapse' : '+ expand answer'} · ♥ {q.likes}</span>
                 </div>
               </div>
             );
