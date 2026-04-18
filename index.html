@@ -2121,12 +2121,24 @@ button {
 }
 
 @media (max-width: 800px) {
-  .hero-grid, .about-hero { grid-template-columns: 1fr; }
+  .container, .container-narrow { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  .hero-grid, .about-hero { grid-template-columns: 1fr; gap: 32px; }
+  .hero-headline { font-size: clamp(36px, 9vw, 56px); }
+  .hero-sub { font-size: 16px; }
   .dashboard { grid-template-columns: 1fr 1fr; }
   .posts-grid { grid-template-columns: 1fr; }
   .post-card.feature { grid-row: auto; }
-  .nav-links .nav-link { display: none; }
-  .nav-links .nav-link:nth-last-child(-n+2) { display: inline-block; }
+  .nav-link { padding: 8px 10px; font-size: 13px; }
+  .nav-cta { display: none; }
+}
+
+@media (max-width: 500px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .countdown-num { font-size: 26px; }
+  .countdown-cell { padding: 12px 4px; }
+  .hero-portrait { width: 72px; height: 72px; margin-bottom: 18px; }
+  .footer-inner { justify-content: flex-start; }
 }
 </style>
 
