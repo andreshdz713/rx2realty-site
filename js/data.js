@@ -46,16 +46,6 @@ window.R2R_DATA = {
         'If you are someone who has ever wondered whether it is possible to grow beyond the path you started on, this is the honest record of someone trying. If you work in real estate and are curious what someone from healthcare leadership might bring to the table, I hope you will keep reading.',
       ],
     },
-    {
-      id: 'p3',
-      title: 'Five soft skills pharmacists already have',
-      excerpt: 'If you can walk a patient through a compounded therapy, you\'re already doing 60% of what a listing agent does. Here\'s the translation.',
-      category: 'Bridge',
-      date: 'Apr 6, 2026',
-      readTime: '5 min',
-      thumb: 'plain',
-      tags: ['real estate', 'crossover'],
-    },
   ],
 
   qa: [],
