@@ -103,7 +103,7 @@ function Footer() {
         <div className="footer-links">
           <a href="#">RSS</a>
           <a href="#">Newsletter</a>
-          <a href="#">Contact</a>
+          <a href="mailto:andreshdz713@gmail.com?subject=rx2realty%20contact">Contact</a>
         </div>
       </div>
     </footer>
