@@ -28,7 +28,7 @@ window.R2R_DATA = {
     {
       id: 'p1',
       title: 'Why a compounding pharmacist is studying real estate',
-      excerpt: 'I was not burning out, and that was exactly why the question stayed with me. Pharmacy taught me to read the details, and real estate, I am learning, rewards the same instinct in a different coat.',
+      excerpt: 'Not burning out. Not leaving pharmacy. Just expanding the shape of my week — and here is why a healthcare leader is learning escrow on nights and weekends.',
       category: 'Journal',
       date: 'Apr 19, 2026',
       readTime: '3 min',
