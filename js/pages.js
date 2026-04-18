@@ -290,7 +290,7 @@ function PostPage({ postId, setRoute }) {
 
         <div style={{ display: 'flex', gap: 4, marginTop: 40, paddingTop: 24, borderTop: '1px solid var(--rule)' }}>
           <button className={'post-action' + (liked ? ' liked' : '')} onClick={() => setLiked(!liked)}>
-            <Icon.heart filled={liked}/> {liked ? 'Liked' : 'Like'} · {liked ? 48 : 47}
+            <Icon.heart filled={liked}/> {liked ? 'Liked' : 'Like'}
           </button>
           <button className="post-action" onClick={() => setRoute('ask')}><Icon.reply/> Ask a follow-up</button>
           <button className="post-action"><Icon.bookmark/> Save</button>
