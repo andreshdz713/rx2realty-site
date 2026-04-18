@@ -33,7 +33,7 @@ window.R2R_DATA = {
       date: 'Apr 19, 2026',
       readTime: '3 min',
       thumb: 'sage',
-      heroImage: 'images/p1-lead.webp',
+      heroImage: 'images/p1-lead.png',
       feature: true,
       tags: ['journey', 'career pivot'],
       body: [

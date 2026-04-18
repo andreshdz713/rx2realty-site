@@ -266,7 +266,7 @@ function PostPage({ postId, setRoute }) {
           {post.title}
         </h1>
         {post.heroImage
-          ? <img src={post.heroImage} alt={post.title} style={{ aspectRatio: '16/7', objectFit: 'cover', width: '100%', display: 'block', borderRadius: 12, marginBottom: 40 }}/>
+          ? <img src={post.heroImage} alt={post.title} style={{ display: 'block', width: '100%', maxWidth: 560, margin: '0 auto 40px', borderRadius: 12 }}/>
           : <div className={'post-thumb ' + (post.thumb || '')} style={{ aspectRatio: '16/7', marginBottom: 40, borderRadius: 12 }}>
               [ hero image placeholder ]
             </div>
