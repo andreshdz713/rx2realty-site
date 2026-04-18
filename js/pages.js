@@ -105,7 +105,10 @@ function HomePage({ setRoute, setPostId }) {
 
           <div className="posts-grid">
             <div className="post-card feature" onClick={() => { setPostId(featured.id); setRoute('post'); }}>
-              <div className="post-thumb sage">[ lead image · hero photo ]</div>
+              {featured.heroImage
+                ? <img src={featured.heroImage} alt={featured.title} className="post-thumb" style={{ aspectRatio: '16/9', objectFit: 'cover', width: '100%', display: 'block' }}/>
+                : <div className="post-thumb sage">[ lead image · hero photo ]</div>
+              }
               <div className="post-meta-row">
                 <span className={'chip ' + (catChip[featured.category] || '')}>{featured.category}</span>
                 <span className="sep">·</span>
@@ -223,9 +226,12 @@ function JournalPage({ setRoute, setPostId }) {
                   <h3 className="post-title" style={{ fontSize: 26 }}>{p.title}</h3>
                   <p className="post-excerpt" style={{ marginTop: 10 }}>{p.excerpt}</p>
                 </div>
-                <div className={'post-thumb ' + (p.thumb === 'sage' ? 'sage' : p.thumb === 'terra' ? 'terra' : '')} style={{ aspectRatio: '4/3' }}>
-                  [ image ]
-                </div>
+                {p.heroImage
+                  ? <img src={p.heroImage} alt={p.title} className="post-thumb" style={{ aspectRatio: '4/3', objectFit: 'cover', width: '100%', display: 'block' }}/>
+                  : <div className={'post-thumb ' + (p.thumb === 'sage' ? 'sage' : p.thumb === 'terra' ? 'terra' : '')} style={{ aspectRatio: '4/3' }}>
+                      [ image ]
+                    </div>
+                }
               </div>
             ))}
           </div>
@@ -259,9 +265,12 @@ function PostPage({ postId, setRoute }) {
         <h1 style={{ fontSize: 'clamp(36px, 5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 28 }}>
           {post.title}
         </h1>
-        <div className={'post-thumb ' + (post.thumb || '')} style={{ aspectRatio: '16/7', marginBottom: 40, borderRadius: 12 }}>
-          [ hero image placeholder ]
-        </div>
+        {post.heroImage
+          ? <img src={post.heroImage} alt={post.title} style={{ aspectRatio: '16/7', objectFit: 'cover', width: '100%', display: 'block', borderRadius: 12, marginBottom: 40 }}/>
+          : <div className={'post-thumb ' + (post.thumb || '')} style={{ aspectRatio: '16/7', marginBottom: 40, borderRadius: 12 }}>
+              [ hero image placeholder ]
+            </div>
+        }
         <div className="post-content" style={{ fontSize: 18, lineHeight: 1.75 }}>
           {post.body ? (
             post.body.map((block, i) => block.startsWith('<blockquote>')
