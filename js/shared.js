@@ -62,6 +62,7 @@ function BrandMark() {
         <circle cx="54" cy="48" r="4" fill="#c76d4a"/>
       </svg>
       <div className="brand-name">rx<em>2</em>realty</div>
+      <div className="brand-tagline">From Prescriptions to Properties</div>
     </div>
   );
 }
