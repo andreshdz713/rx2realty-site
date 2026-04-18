@@ -263,11 +263,20 @@ function PostPage({ postId, setRoute }) {
           [ hero image placeholder ]
         </div>
         <div className="post-content" style={{ fontSize: 18, lineHeight: 1.75 }}>
-          <p>{post.excerpt}</p>
-          <p>This essay is a placeholder — when you drop in your real writing it will render with this typographic rhythm. The serif display type gives weight to the title; the body type is tuned for comfortable reading at long lengths.</p>
-          <blockquote>I don't want to leave pharmacy. I want to expand the shape of my week.</blockquote>
-          <p>Below the fold, you'd include any real content: anecdotes from shifts, study techniques, interview notes with brokers. Treat this like a letter to the version of you who's one month behind.</p>
-          <p>Finally, a closing call — maybe a question for readers, or an invitation to ask a follow-up. The goal is always to turn a solo monologue into a shared conversation.</p>
+          {post.body ? (
+            post.body.map((block, i) => block.startsWith('<blockquote>')
+              ? <blockquote key={i} dangerouslySetInnerHTML={{ __html: block.replace(/<\/?blockquote>/g, '') }}/>
+              : <p key={i} dangerouslySetInnerHTML={{ __html: block }}/>
+            )
+          ) : (
+            <>
+              <p>{post.excerpt}</p>
+              <p>This essay is a placeholder — when you drop in your real writing it will render with this typographic rhythm. The serif display type gives weight to the title; the body type is tuned for comfortable reading at long lengths.</p>
+              <blockquote>I don't want to leave pharmacy. I want to expand the shape of my week.</blockquote>
+              <p>Below the fold, you'd include any real content: anecdotes from shifts, study techniques, interview notes with brokers. Treat this like a letter to the version of you who's one month behind.</p>
+              <p>Finally, a closing call — maybe a question for readers, or an invitation to ask a follow-up. The goal is always to turn a solo monologue into a shared conversation.</p>
+            </>
+          )}
         </div>
 
         <div style={{ display: 'flex', gap: 4, marginTop: 40, paddingTop: 24, borderTop: '1px solid var(--rule)' }}>

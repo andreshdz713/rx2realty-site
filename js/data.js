@@ -35,6 +35,12 @@ window.R2R_DATA = {
       thumb: 'sage',
       feature: true,
       tags: ['journey', 'career pivot'],
+      body: [
+        'Most people asked if I was burning out. I wasn\'t — that\'s why the question kept bothering me. A career I\'d chosen carefully, worked hard for, and still genuinely liked didn\'t feel like something I needed to escape. But something was missing, and it wasn\'t more hours in the lab.',
+        '<blockquote>I don\'t want to leave pharmacy. I want to expand the shape of my week.</blockquote>',
+        'Compounding teaches you that the difference between a therapy that works and one that doesn\'t is usually hiding in the details. Ratios, pH, particle size — a small formulation choice can change how a medication performs in a patient. Real estate, I\'m learning, is built the same way. A walkthrough isn\'t a building; it\'s a collection of signals about how the building was put together, who built it, and what it\'ll cost to keep running. Same instinct in a different coat: read the details before they bite you.',
+        'This journal is where I\'m working out the pivot in public. I\'m behind the compounding counter by day, and on nights and weekends I\'m learning what escrow means, how commissions actually work, and why every Texas agent has opinions about ERCOT. If you\'re a pharmacist wondering whether this is possible, this is the record of someone trying it. If you\'re in real estate and curious what pharmacists bring to the table, stick around.',
+      ],
     },
     {
       id: 'p3',
