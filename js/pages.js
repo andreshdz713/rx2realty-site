@@ -137,38 +137,39 @@ function HomePage({ setRoute, setPostId }) {
         </div>
       </section>
 
-      {/* Forum teaser */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow" style={{ marginBottom: 12 }}>Community</div>
-              <h2 className="section-title">Two crowds, <em>one room</em></h2>
+      {window.R2R_DATA.threads.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <div>
+                <div className="eyebrow" style={{ marginBottom: 12 }}>Community</div>
+                <h2 className="section-title">Two crowds, <em>one room</em></h2>
+              </div>
+              <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes — asking and answering in the open.</p>
             </div>
-            <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes — asking and answering in the open.</p>
-          </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-            {window.R2R_DATA.threads.slice(0, 2).map(t => (
-              <div key={t.id} className="thread-row" onClick={() => setRoute('forum')} style={{ gridTemplateColumns: 'auto 1fr' }}>
-                <Avatar n={t.avatar} name={t.author}/>
-                <div>
-                  <div className="thread-title">{t.title}</div>
-                  <div className="thread-meta">
-                    <span className="author">@{t.author}</span>
-                    <span>·</span><span>{t.replies} replies</span>
-                    <span>·</span><span>{t.lastActivity}</span>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+              {window.R2R_DATA.threads.slice(0, 2).map(t => (
+                <div key={t.id} className="thread-row" onClick={() => setRoute('forum')} style={{ gridTemplateColumns: 'auto 1fr' }}>
+                  <Avatar n={t.avatar} name={t.author}/>
+                  <div>
+                    <div className="thread-title">{t.title}</div>
+                    <div className="thread-meta">
+                      <span className="author">@{t.author}</span>
+                      <span>·</span><span>{t.replies} replies</span>
+                      <span>·</span><span>{t.lastActivity}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div style={{ textAlign: 'center', marginTop: 32 }}>
-            <button className="btn btn-primary" onClick={() => setRoute('forum')}>See all 142 threads <Icon.arrow/></button>
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
+              <button className="btn btn-primary" onClick={() => setRoute('forum')}>See all {window.R2R_DATA.threads.length} threads <Icon.arrow/></button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   );
 }

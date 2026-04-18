@@ -18,7 +18,7 @@ function ForumPage({ setRoute, setThreadId }) {
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 32, flexWrap: 'wrap' }}>
             <div>
-              <div className="eyebrow" style={{ marginBottom: 12 }}>Forum · {threads.length} of 142 threads shown</div>
+              <div className="eyebrow" style={{ marginBottom: 12 }}>Forum · {threads.length === 0 ? 'open for the first question' : `${filtered.length} of ${threads.length} threads shown`}</div>
               <h1 style={{ fontSize: 'clamp(36px, 5vw, 56px)', letterSpacing: '-0.025em', lineHeight: 1.05 }}>
                 The <em style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>back room</em>.
               </h1>
@@ -71,7 +71,9 @@ function ForumPage({ setRoute, setThreadId }) {
             <div>
               {filtered.length === 0 && (
                 <div className="card" style={{ padding: 40, textAlign: 'center', color: 'var(--ink-mute)' }}>
-                  No threads match that search.
+                  {threads.length === 0
+                    ? 'No threads yet. Start the first one with the button above.'
+                    : 'No threads match that search.'}
                 </div>
               )}
               {filtered.map(t => (
@@ -109,9 +111,22 @@ function ForumPage({ setRoute, setThreadId }) {
 // ---------- Thread detail ----------
 function ThreadPage({ setRoute }) {
   const td = window.R2R_DATA.threadDetail;
-  const [replies, setReplies] = useStateF(td.replies);
+  const [replies, setReplies] = useStateF(td ? td.replies : []);
   const [draft, setDraft] = useStateF('');
   const [likes, setLikes] = useStateF({});
+
+  if (!td) {
+    return (
+      <main>
+        <div className="container-narrow" style={{ padding: '80px 0', textAlign: 'center' }}>
+          <button className="back-link" onClick={() => setRoute('forum')}>
+            <Icon.back/> Back to forum
+          </button>
+          <p style={{ marginTop: 24, color: 'var(--ink-mute)' }}>No thread selected.</p>
+        </div>
+      </main>
+    );
+  }
 
   const toggleLike = (key, baseline) => {
     setLikes(prev => {
