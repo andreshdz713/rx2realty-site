@@ -16,6 +16,11 @@ function HomePage({ setRoute, setPostId }) {
         <div className="container">
           <div className="hero-grid">
             <div>
+              <img
+                src={window.__resources ? window.__resources.portrait : 'images/portrait.jpg'}
+                alt="Andres Hernandez"
+                className="hero-portrait"
+              />
               <div className="eyebrow" style={{ marginBottom: 24 }}>Compounding pharmacist · exploring real estate in Texas</div>
               <h1 className="hero-headline">
                 Two careers,<br/>
