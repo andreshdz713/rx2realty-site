@@ -139,7 +139,7 @@ function CountdownCard() {
         <div className="countdown-title">Exam countdown</div>
         <div className="countdown-live"><span className="pulse"/> LIVE</div>
       </div>
-      <div className="countdown-exam"><em>Texas</em> Real Estate Salesperson</div>
+      <div className="countdown-exam"><em>{exam.name.split(' ')[0]}</em> {exam.name.split(' ').slice(1).join(' ')}</div>
       <div className="countdown-date">{fmt(exam.date)} · 9:00 AM CT</div>
 
       <div className="countdown-digits">

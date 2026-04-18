@@ -338,7 +338,7 @@ function AboutPage() {
               </div>
               <div className="timeline-item terra">
                 <div className="timeline-year">Jul 2026 · planned</div>
-                <div className="timeline-title">Take the Texas salesperson exam</div>
+                <div className="timeline-title">Take the Texas real estate exam</div>
                 <div className="timeline-desc">
 </div>
               </div>
