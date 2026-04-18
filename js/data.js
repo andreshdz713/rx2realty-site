@@ -48,20 +48,6 @@ window.R2R_DATA = {
     },
   ],
 
-  categories: [
-    { id: 'all', name: 'All discussions', count: 0 },
-    { id: 'pharmacy', name: 'Pharmacy practice', count: 0 },
-    { id: 'exam', name: 'RE exam prep', count: 0 },
-    { id: 'pivot', name: 'Rx → Realty stories', count: 0 },
-    { id: 'investing', name: 'Investing 101', count: 0 },
-    { id: 'licensing', name: 'Licensing & CE', count: 0 },
-    { id: 'lounge', name: 'The lounge', count: 0 },
-  ],
-
-  threads: [],
-
-  threadDetail: null,
-
   qa: [
     {
       q: 'How do you keep pharmacy work from leaking into your study time?',

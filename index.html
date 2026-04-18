@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-fonts="editorial"><head><script>window.__resources = {"forumJsx": "js/forum.js", "sharedJsx": "js/shared.js", "dataJs": "js/data.js", "pagesJsx": "js/pages.js", "portrait": "images/portrait.jpg"};</script>
+<html lang="en" data-fonts="editorial"><head><script>window.__resources = {"askJsx": "js/ask.js", "sharedJsx": "js/shared.js", "dataJs": "js/data.js", "pagesJsx": "js/pages.js", "portrait": "images/portrait.jpg"};</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>rx2realty · from compounding to closing</title>
@@ -2123,7 +2123,7 @@ button {
   <script src="js/data.js"></script>
   <script type="text/babel" src="js/shared.js"></script>
   <script type="text/babel" src="js/pages.js"></script>
-  <script type="text/babel" src="js/forum.js"></script>
+  <script type="text/babel" src="js/ask.js"></script>
 
   <script type="text/babel">
     const { useState, useEffect } = React;
@@ -2137,7 +2137,6 @@ button {
     function App() {
       const [route, setRoute] = useState(() => localStorage.getItem('r2r_route') || 'home');
       const [postId, setPostId] = useState(null);
-      const [threadId, setThreadId] = useState(null);
       const [fonts, setFonts] = useState(() => localStorage.getItem('r2r_fonts') || TWEAK_DEFAULTS.fontPairing || 'editorial');
       const [tweaksOpen, setTweaksOpen] = useState(false);
 
@@ -2172,8 +2171,6 @@ button {
       if (route === 'home') page = <HomePage setRoute={setRoute} setPostId={setPostId}/>;
       else if (route === 'journal') page = <JournalPage setRoute={setRoute} setPostId={setPostId}/>;
       else if (route === 'post') page = <PostPage postId={postId} setRoute={setRoute}/>;
-      else if (route === 'forum') page = <ForumPage setRoute={setRoute} setThreadId={setThreadId}/>;
-      else if (route === 'thread') page = <ThreadPage setRoute={setRoute}/>;
       else if (route === 'ask') page = <AskPage/>;
       else if (route === 'about') page = <AboutPage/>;
       else page = <HomePage setRoute={setRoute} setPostId={setPostId}/>;

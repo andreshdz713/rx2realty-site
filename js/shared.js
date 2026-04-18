@@ -71,7 +71,6 @@ function Nav({ route, setRoute }) {
   const items = [
     { id: 'home', label: 'Home' },
     { id: 'journal', label: 'Journal' },
-    { id: 'forum', label: 'Forum' },
     { id: 'ask', label: 'Ask' },
     { id: 'about', label: 'About' },
   ];
@@ -83,11 +82,11 @@ function Nav({ route, setRoute }) {
           {items.map(it => (
             <button
               key={it.id}
-              className={'nav-link' + (route === it.id || (it.id === 'forum' && route === 'thread') || (it.id === 'journal' && route === 'post') ? ' active' : '')}
+              className={'nav-link' + (route === it.id || (it.id === 'journal' && route === 'post') ? ' active' : '')}
               onClick={() => setRoute(it.id)}
             >{it.label}</button>
           ))}
-          <button className="nav-cta" onClick={() => setRoute('forum')}>Join the conversation</button>
+          <button className="nav-cta" onClick={() => setRoute('ask')}>Ask me anything</button>
         </div>
       </div>
     </nav>

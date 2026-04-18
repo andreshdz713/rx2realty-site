@@ -26,7 +26,7 @@ function HomePage({ setRoute, setPostId }) {
               </p>
               <div className="hero-actions">
                 <button className="btn btn-primary" onClick={() => setRoute('journal')}>Read the journal <Icon.arrow/></button>
-                <button className="btn btn-ghost" onClick={() => setRoute('forum')}>Jump into the forum</button>
+                <button className="btn btn-ghost" onClick={() => setRoute('ask')}>Ask me anything</button>
               </div>
               <div className="hero-meta">
                 <div><strong>{exam.streak}</strong>-day study streak</div>
@@ -45,7 +45,7 @@ function HomePage({ setRoute, setPostId }) {
               <div className="eyebrow" style={{ marginBottom: 12 }}>Live dashboard · updated hourly</div>
               <h2 className="section-title">Where I am in the <em>study grind</em></h2>
             </div>
-            <p className="section-sub">Public accountability. If the numbers slip, someone in the forum will roast me — which is precisely the point.</p>
+            <p className="section-sub">Public accountability. If the numbers slip, it's on me — which is precisely the point.</p>
           </div>
 
           <div className="dashboard">
@@ -145,30 +145,8 @@ function HomePage({ setRoute, setPostId }) {
             <p className="section-sub">Pharmacists, real estate people, and everyone swapping lanes — asking and answering in the open.</p>
           </div>
 
-          {window.R2R_DATA.threads.length > 0 && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              {window.R2R_DATA.threads.slice(0, 2).map(t => (
-                <div key={t.id} className="thread-row" onClick={() => setRoute('forum')} style={{ gridTemplateColumns: 'auto 1fr' }}>
-                  <Avatar n={t.avatar} name={t.author}/>
-                  <div>
-                    <div className="thread-title">{t.title}</div>
-                    <div className="thread-meta">
-                      <span className="author">@{t.author}</span>
-                      <span>·</span><span>{t.replies} replies</span>
-                      <span>·</span><span>{t.lastActivity}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
           <div style={{ textAlign: 'center', marginTop: 32 }}>
-            <button className="btn btn-primary" onClick={() => setRoute('forum')}>
-              {window.R2R_DATA.threads.length > 0
-                ? <>See all {window.R2R_DATA.threads.length} threads <Icon.arrow/></>
-                : <>Start the first thread <Icon.arrow/></>}
-            </button>
+            <button className="btn btn-primary" onClick={() => setRoute('ask')}>Ask a question <Icon.arrow/></button>
           </div>
         </div>
       </section>
@@ -284,14 +262,14 @@ function PostPage({ postId, setRoute }) {
           <p>This essay is a placeholder — when you drop in your real writing it will render with this typographic rhythm. The serif display type gives weight to the title; the body type is tuned for comfortable reading at long lengths.</p>
           <blockquote>I don't want to leave pharmacy. I want to expand the shape of my week.</blockquote>
           <p>Below the fold, you'd include any real content: anecdotes from shifts, study techniques, interview notes with brokers. Treat this like a letter to the version of you who's one month behind.</p>
-          <p>Finally, a closing call — maybe a question for readers, or a link to the related forum thread. The goal is always to turn a solo monologue into a shared conversation.</p>
+          <p>Finally, a closing call — maybe a question for readers, or an invitation to ask a follow-up. The goal is always to turn a solo monologue into a shared conversation.</p>
         </div>
 
         <div style={{ display: 'flex', gap: 4, marginTop: 40, paddingTop: 24, borderTop: '1px solid var(--rule)' }}>
           <button className={'post-action' + (liked ? ' liked' : '')} onClick={() => setLiked(!liked)}>
             <Icon.heart filled={liked}/> {liked ? 'Liked' : 'Like'} · {liked ? 48 : 47}
           </button>
-          <button className="post-action"><Icon.reply/> Discuss in forum</button>
+          <button className="post-action" onClick={() => setRoute('ask')}><Icon.reply/> Ask a follow-up</button>
           <button className="post-action"><Icon.bookmark/> Save</button>
         </div>
       </div>
