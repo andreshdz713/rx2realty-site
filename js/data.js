@@ -3,12 +3,12 @@
 window.R2R_DATA = {
   exam: {
     name: 'Texas Real Estate Salesperson Exam',
-    date: new Date('2026-07-18T09:00:00'),
+    date: new Date('2026-07-27T09:00:00'),
     startedStudying: new Date('2026-04-09'),
     hoursCompleted: 20,
     hoursRequired: 180,
     practiceAvg: 82,
-    streak: 23,
+    streak: 4,
   },
 
   topics: [
