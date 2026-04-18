@@ -1065,7 +1065,17 @@ button {
   border-left: 1px solid var(--rule);
   line-height: 1.1;
 }
-@media (max-width: 820px) { .brand-tagline { display: none; } }
+@media (max-width: 820px) {
+  .brand { flex-wrap: wrap; row-gap: 0; }
+  .brand-tagline {
+    flex-basis: 100%;
+    margin: 2px 0 0 46px;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+}
 
 .hero-portrait {
   width: 88px;
