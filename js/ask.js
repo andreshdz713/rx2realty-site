@@ -8,13 +8,32 @@ function AskPage() {
   const [expanded, setExpanded] = useStateA(null);
   const [draftQ, setDraftQ] = useStateA('');
   const [draftName, setDraftName] = useStateA('');
+  const [status, setStatus] = useStateA('idle'); // idle | sending | sent | error
+  const [honeypot, setHoneypot] = useStateA('');
 
-  const canSubmit = draftQ.trim() && draftName.trim();
-  const submit = () => {
+  const canSubmit = draftQ.trim() && draftName.trim() && status !== 'sending';
+  const submit = async () => {
     if (!canSubmit) return;
-    alert(`Question from ${draftName.trim()} queued! (demo)`);
-    setDraftQ('');
-    setDraftName('');
+    if (honeypot) return; // bot filled the hidden field
+    setStatus('sending');
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/andreshdz713@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: draftName.trim(),
+          question: draftQ.trim(),
+          _subject: `rx2realty question from ${draftName.trim()}`,
+          _template: 'table',
+        }),
+      });
+      if (!r.ok) throw new Error('submit failed: ' + r.status);
+      setStatus('sent');
+      setDraftQ('');
+      setDraftName('');
+    } catch (e) {
+      setStatus('error');
+    }
   };
 
   const tabs = [
@@ -82,10 +101,24 @@ function AskPage() {
               placeholder="e.g. How did you handle the financing math chapter?"
               style={{ minHeight: 60 }}
             />
+            <input
+              type="text"
+              name="_gotcha"
+              value={honeypot}
+              onChange={e => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+              aria-hidden="true"
+            />
             <div className="composer-foot">
-              <div className="composer-hint">Answered in the order received · response within 48 hrs</div>
+              <div className="composer-hint">
+                {status === 'sent' && <span style={{ color: 'var(--sage-deep)' }}>Sent. I will reply within 48 hours.</span>}
+                {status === 'error' && <span style={{ color: '#a13a2c' }}>Something went wrong. Email me directly instead.</span>}
+                {status !== 'sent' && status !== 'error' && 'Answered in the order received · response within 48 hrs'}
+              </div>
               <button className={'btn btn-sm ' + (canSubmit ? 'btn-terra' : 'btn-ghost')} disabled={!canSubmit} onClick={submit}>
-                Submit <Icon.arrow/>
+                {status === 'sending' ? 'Sending...' : <>Submit <Icon.arrow/></>}
               </button>
             </div>
           </div>
