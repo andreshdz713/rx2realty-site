@@ -170,37 +170,21 @@ function HomePage({ setRoute, setPostId }) {
 
 // ---------- Journal list ----------
 function JournalPage({ setRoute, setPostId }) {
-  const basePosts = window.R2R_DATA.posts;
-  const [userPosts, setUserPosts] = useStateH(() => {
-    try { return JSON.parse(localStorage.getItem('r2r_user_posts') || '[]'); } catch { return []; }
-  });
-  const posts = [...userPosts, ...basePosts];
+  const posts = window.R2R_DATA.posts;
   const [filter, setFilter] = useStateH('All');
-  const [showModal, setShowModal] = useStateH(false);
   const cats = ['All', 'Journal', 'Study Log', 'Bridge'];
   const shown = filter === 'All' ? posts : posts.filter(p => p.category === filter);
-
-  const addEntry = (entry) => {
-    const next = [entry, ...userPosts];
-    setUserPosts(next);
-    localStorage.setItem('r2r_user_posts', JSON.stringify(next));
-    window.R2R_DATA.posts = [...next, ...basePosts];
-    setShowModal(false);
-  };
 
   return (
     <main>
       <section className="hero" style={{ paddingBottom: 32 }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 20 }}>
-            <div>
-              <div className="eyebrow" style={{ marginBottom: 20 }}>Journal · {posts.length} entries</div>
-              <h1 className="hero-headline" style={{ fontSize: 'clamp(40px, 5vw, 64px)' }}>
-                Essays, study logs,<br/>
-                <em>and field notes.</em>
-              </h1>
-            </div>
-            <button className="btn btn-primary" onClick={() => setShowModal(true)} style={{ marginTop: 40 }}>+ New entry</button>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 20 }}>Journal · {posts.length} entries</div>
+            <h1 className="hero-headline" style={{ fontSize: 'clamp(40px, 5vw, 64px)' }}>
+              Essays, study logs,<br/>
+              <em>and field notes.</em>
+            </h1>
           </div>
           <div style={{ display: 'flex', gap: 8, marginTop: 32, flexWrap: 'wrap' }}>
             {cats.map(c => (
@@ -246,7 +230,6 @@ function JournalPage({ setRoute, setPostId }) {
         </div>
       </section>
 
-      {showModal && <EntryModal onSave={addEntry} onClose={() => setShowModal(false)}/>}
     </main>
   );
 }
