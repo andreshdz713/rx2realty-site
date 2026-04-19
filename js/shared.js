@@ -47,6 +47,26 @@ const Icon = {
   sparkle: ({ size = 14 }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z"/></svg>
   ),
+  eye: ({ size = 14 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+    </svg>
+  ),
+};
+
+// Per-post view counter (localStorage). Works per-browser; fine for a personal journal.
+const postViews = {
+  get: (id) => {
+    try { return parseInt(localStorage.getItem('r2r_views_' + id) || '0', 10); }
+    catch { return 0; }
+  },
+  inc: (id) => {
+    try {
+      const n = postViews.get(id) + 1;
+      localStorage.setItem('r2r_views_' + id, String(n));
+      return n;
+    } catch { return 0; }
+  },
 };
 
 // ---------- Brand mark ----------
@@ -185,5 +205,5 @@ const catChip = {
 };
 
 Object.assign(window, {
-  Icon, BrandMark, Nav, Footer, CountdownCard, Avatar, useCountdown, catChip,
+  Icon, BrandMark, Nav, Footer, CountdownCard, Avatar, useCountdown, catChip, postViews,
 });
