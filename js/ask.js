@@ -17,7 +17,7 @@ function AskPage() {
     if (honeypot) return; // bot filled the hidden field
     setStatus('sending');
     try {
-      const r = await fetch('https://formsubmit.co/ajax/andreshdz713@gmail.com', {
+      const r = await fetch('https://formsubmit.co/ajax/andres@rx2realty.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({

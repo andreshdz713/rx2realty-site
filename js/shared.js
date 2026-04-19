@@ -146,7 +146,7 @@ function Footer() {
       <div className="container footer-inner">
         <div>© 2026 rx2realty · A running log from compounding lab to closing table.</div>
         <div className="footer-links">
-          <a href="mailto:andreshdz713@gmail.com?subject=rx2realty%20contact">Contact</a>
+          <a href="mailto:andres@rx2realty.com?subject=rx2realty%20contact">Contact</a>
         </div>
       </div>
     </footer>
