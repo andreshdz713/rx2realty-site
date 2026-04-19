@@ -54,20 +54,45 @@ const Icon = {
   ),
 };
 
-// Per-post view counter (localStorage). Works per-browser; fine for a personal journal.
+// Cross-visitor view counter backed by counterapi.dev. localStorage holds the
+// last-seen count so the UI can paint instantly while a fetch resolves; the
+// fetch then updates to the real server-side number.
+const VIEW_COUNTER_NS = 'rx2realty';
 const postViews = {
-  get: (id) => {
+  cached: (id) => {
     try { return parseInt(localStorage.getItem('r2r_views_' + id) || '0', 10); }
     catch { return 0; }
   },
-  inc: (id) => {
-    try {
-      const n = postViews.get(id) + 1;
-      localStorage.setItem('r2r_views_' + id, String(n));
-      return n;
-    } catch { return 0; }
+  setCache: (id, n) => {
+    try { localStorage.setItem('r2r_views_' + id, String(n)); } catch {}
+  },
+  fetchCount: async (id, increment) => {
+    const path = increment ? '/up' : '/';
+    const url = 'https://api.counterapi.dev/v1/' + VIEW_COUNTER_NS + '/' + id + path;
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('counter fetch failed: ' + r.status);
+    const d = await r.json();
+    if (typeof d.count !== 'number') throw new Error('no count in response');
+    postViews.setCache(id, d.count);
+    return d.count;
   },
 };
+
+function PostViews({ id, increment = false }) {
+  const [n, setN] = useState(() => postViews.cached(id));
+  useEffect(() => {
+    let cancelled = false;
+    postViews.fetchCount(id, increment)
+      .then(count => { if (!cancelled) setN(count); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [id, increment]);
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+      <Icon.eye/> {n}
+    </span>
+  );
+}
 
 // ---------- Brand mark ----------
 function BrandMark() {
@@ -205,5 +230,5 @@ const catChip = {
 };
 
 Object.assign(window, {
-  Icon, BrandMark, Nav, Footer, CountdownCard, Avatar, useCountdown, catChip, postViews,
+  Icon, BrandMark, Nav, Footer, CountdownCard, Avatar, useCountdown, catChip, postViews, PostViews,
 });

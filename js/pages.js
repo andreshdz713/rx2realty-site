@@ -1,6 +1,6 @@
 // Home, Journal, About pages
 
-const { useState: useStateH, useEffect: useEffectH } = React;
+const { useState: useStateH } = React;
 
 function HomePage({ setRoute, setPostId }) {
   const { topics, posts, recentSessions, exam } = window.R2R_DATA;
@@ -121,7 +121,7 @@ function HomePage({ setRoute, setPostId }) {
               <div className="post-foot">
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}>
                   <span>Read essay</span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: 'var(--ink-mute)' }}><Icon.eye/> {postViews.get(featured.id)}</span>
+                  <span style={{ color: 'var(--ink-mute)' }}><PostViews id={featured.id}/></span>
                 </span>
                 <Icon.arrow/>
               </div>
@@ -139,7 +139,7 @@ function HomePage({ setRoute, setPostId }) {
                 <div className="post-foot">
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
                     <span>{p.date}</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: 'var(--ink-mute)' }}><Icon.eye/> {postViews.get(p.id)}</span>
+                    <span style={{ color: 'var(--ink-mute)' }}><PostViews id={p.id}/></span>
                   </span>
                   <Icon.arrow/>
                 </div>
@@ -229,7 +229,7 @@ function JournalPage({ setRoute, setPostId }) {
                     <span className="sep">·</span>
                     <span>{p.readTime}</span>
                     <span className="sep">·</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><Icon.eye/> {postViews.get(p.id)}</span>
+                    <PostViews id={p.id}/>
                   </div>
                   <h3 className="post-title" style={{ fontSize: 26 }}>{p.title}</h3>
                   <p className="post-excerpt" style={{ marginTop: 10 }}>{p.excerpt}</p>
@@ -256,11 +256,6 @@ function PostPage({ postId, setRoute }) {
   const { posts } = window.R2R_DATA;
   const post = posts.find(p => p.id === postId) || posts[0];
   const [liked, setLiked] = useStateH(false);
-  const [views, setViews] = useStateH(() => postViews.get(post.id));
-
-  useEffectH(() => {
-    setViews(postViews.inc(post.id));
-  }, [post.id]);
 
   return (
     <main>
@@ -275,7 +270,7 @@ function PostPage({ postId, setRoute }) {
           <span className="sep">·</span>
           <span>{post.readTime}</span>
           <span className="sep">·</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><Icon.eye/> {views}</span>
+          <PostViews id={post.id} increment={true}/>
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.025em', marginBottom: 28 }}>
           {post.title}
