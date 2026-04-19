@@ -64,7 +64,7 @@ function HomePage({ setRoute, setPostId }) {
               <div className="stat-value">{exam.hoursCompleted}<span className="stat-unit">hrs</span></div>
               <div className="stat-bars">
                 {recentSessions.map((v, i) => (
-                  <div key={i} className={'stat-bar' + (v >= 6 ? ' active' : '')} style={{ height: (v / maxSession * 100) + '%' }}/>
+                  <div key={i} className={'stat-bar' + (v >= 3 ? ' active' : '')} style={{ height: (v / maxSession * 100) + '%' }}/>
                 ))}
               </div>
             </div>

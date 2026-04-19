@@ -22,7 +22,9 @@ window.R2R_DATA = {
     { name: 'Texas Sales Agent License Exam Preparation', pct: 0 },
   ],
 
-  recentSessions: [4, 6, 5, 7, 3, 8, 6, 7, 9, 5, 6, 8, 4, 7],
+  // Daily study hours, oldest first. Apr 9 through today.
+  // Append a new number each day you study. Sum should match exam.hoursCompleted.
+  recentSessions: [2, 2, 2, 2, 2, 1, 2, 2, 3, 2],
 
   posts: [
     {
