@@ -348,8 +348,8 @@ function AboutPage() {
               </div>
               <div className="timeline-item">
                 <div className="timeline-year">Current</div>
-                <div className="timeline-title">Director of Product Innovation/Compounding Pharmacist</div>
-                <div className="timeline-desc">Formulating new formulations, patient-specific therapies, and providing education to physicians and patients.</div>
+                <div className="timeline-title">Director of Strategic Partnerships and Product Innovation</div>
+                <div className="timeline-desc">Driving innovation in personalized medicine by creating market-ready therapies and forging strategic partnerships that expand patient and provider impact.</div>
               </div>
               <div className="timeline-item terra">
                 <div className="timeline-year">April 2026</div>
