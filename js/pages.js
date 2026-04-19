@@ -47,7 +47,7 @@ function HomePage({ setRoute, setPostId }) {
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="eyebrow" style={{ marginBottom: 12 }}>Live dashboard · updated hourly</div>
+              <div className="eyebrow" style={{ marginBottom: 12 }}>Live dashboard</div>
               <h2 className="section-title">Where I am in the <em>study grind</em></h2>
             </div>
             <p className="section-sub">Public accountability. If the numbers slip, it's on me, which is precisely the point.</p>
