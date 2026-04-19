@@ -317,13 +317,16 @@ function AboutPage() {
             </h1>
             <div className="about-body">
               <p>
-                I'm a compounding pharmacist formulating formulations, who works with GLP-1 therapies and other peptide therapies. The craft taught me to build things that actually fit the people using them.
+                My name is Andres, and pharmacy has been a big part of my life for more than eight years. I started in retail, where I learned how to work under pressure, solve problems quickly, and help people when they needed it most. Over the last four years, I moved into compounding, where the work became more personal and precise. I helped develop customized therapies, including GLP 1 and peptide formulations, built around each patient's needs. That experience taught me that the best solutions are never one size fits all. They are built with care for the people they are meant to help.
               </p>
               <p>
-                I'm not leaving pharmacy. I love the science, the patients, the work. But I'm exploring real estate alongside it, because I want to understand how value gets made outside the lab, and because the two skillsets compound in interesting ways.
+                I am not leaving pharmacy. I still love the science, the impact, and the work itself. But I am also exploring real estate, because I want to understand how value is created in a different world. The more I learn, the more I see how connected they are. Both require trust, attention to detail, problem solving, and helping people make important decisions with confidence.
               </p>
               <p>
-                If you're a pharmacist wondering whether this is possible, or a real estate pro curious why someone from the pharmacy world would show up here, this site is for both of you. Pull up a chair.
+                Outside of work, I enjoy traveling with friends, overlanding, hot wings, and anything that pushes me physically or mentally. I like trying new things, taking on challenges, and staying curious about what else life can offer.
+              </p>
+              <p>
+                I hope this page creates value whether you are interested in pharmacy or real estate. Looking forward to growing with you all.
               </p>
             </div>
 
