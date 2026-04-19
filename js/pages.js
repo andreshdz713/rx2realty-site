@@ -312,9 +312,8 @@ function AboutPage() {
           <div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>About · written April 2026</div>
             <h1 className="about-h1">
-              I build personalized<br/>
-              <em>medicine by day.</em><br/>
-              Now I'm studying real estate too.
+              Building Personalized Medicine by Day,<br/>
+              <em>Studying Real Estate by Night.</em>
             </h1>
             <div className="about-body">
               <p>
